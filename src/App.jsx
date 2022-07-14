@@ -1,9 +1,16 @@
 import { useState } from 'react'
+import styled from '@emotion/styled'
+
+const Heading = styled.h1`
+  font-family: 'lato', sans-serif;
+  color: #fff;
+
+`
 
 function App() {
 
   return (
-    <h1>Hola desde cripto</h1>
+    <Heading>Hola desde cripto</Heading>
   )
 }
 
