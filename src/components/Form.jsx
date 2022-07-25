@@ -1,4 +1,5 @@
 import React from 'react'
+import {coins} from '../data/coins'
 import styled from '@emotion/styled'
 import useSelectMoney from '../hooks/useSelectMoney'
 
@@ -21,14 +22,15 @@ const InputSubmit = styled.input`
 `
 
 const Form = () => {
-  const [SelectMoney] = useSelectMoney("Elige tu moneda")
-  const [CriptoMoney] = useSelectMoney("Elige tu criptomoneda")
+
+  
+  const [SelectMoney] = useSelectMoney("Elige tu moneda", coins)
+  
   
   
   return (
     <form action="">
       <SelectMoney />
-      <CriptoMoney />
       <InputSubmit type="submit" value="Cotizar"/>
     </form>
   )

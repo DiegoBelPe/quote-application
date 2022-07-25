@@ -6,11 +6,20 @@ const Label = styled.label`
 
 `
 
-const useSelectMoney = (label) => {
+const useSelectMoney = (label, opciones) => {
   
   const SelectMoney = () => (
     <>
       <Label>{label}</Label>
+      <select>
+        <option value="">Elige tu moneda</option>
+        {opciones.map(opcion => (
+          <option
+          key={opcion.id}
+          value={opcion.id}
+          >{opcion.name}</option>
+        ))}
+      </select>
     
     </>
 
