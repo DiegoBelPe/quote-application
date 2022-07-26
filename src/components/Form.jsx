@@ -13,6 +13,7 @@ const InputSubmit = styled.input`
   font-weight: 700;
   text-transform: uppercase;
   font-size: 20px;
+  margin-top: 30px;
   :hover {
     cursor: pointer;
     background-color: #326ac0;
