@@ -1,4 +1,4 @@
-import React from 'react'
+import { useState } from 'react'
 import styled from '@emotion/styled'
 
 const Label = styled.label`
@@ -21,11 +21,15 @@ const Select = styled.select`
 
 
 const useSelectMoney = (label, opciones) => {
+  const [state , setState] = useState('')
   
   const SelectMoney = () => (
     <>
       <Label>{label}</Label>
-      <Select>
+      <Select
+        value={state}
+        onChange={e => setState(e.target.value)}
+      >
         <option value="">Elige tu moneda</option>
         {opciones.map(opcion => (
           <option
@@ -38,7 +42,7 @@ const useSelectMoney = (label, opciones) => {
     </>
 
   )
-  return [SelectMoney]
+  return [ state, SelectMoney]
 }
 
 export default useSelectMoney

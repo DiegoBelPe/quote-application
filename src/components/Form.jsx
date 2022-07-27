@@ -25,13 +25,14 @@ const InputSubmit = styled.input`
 const Form = () => {
 
   
-  const [SelectMoney] = useSelectMoney("Elige tu moneda", coins)
+  const [ money, SelectMoney] = useSelectMoney("Elige tu moneda", coins)
   
   
   
   return (
     <form action="">
-      <SelectMoney />
+      <SelectMoney/>
+      {money}
       <InputSubmit type="submit" value="Cotizar"/>
     </form>
   )
