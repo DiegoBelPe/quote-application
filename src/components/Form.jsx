@@ -1,4 +1,5 @@
-import React from 'react'
+import {useEffect} from 'react'
+import {getCryptoData} from '../services/crypto'
 import {coins} from '../data/coins'
 import styled from '@emotion/styled'
 import useSelectMoney from '../hooks/useSelectMoney'
@@ -26,6 +27,11 @@ const Form = () => {
 
   
   const [ money, SelectMoney] = useSelectMoney("Elige tu moneda", coins)
+
+  useEffect(() => {
+    getCryptoData()
+  }, [])
+
   
   
   
