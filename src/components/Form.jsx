@@ -28,6 +28,7 @@ const Form = () => {
 
   
   const [ money, SelectMoney] = useSelectMoney("Elige tu moneda", coins)
+  const [ cryptomoneda, SelectCriptomoneda] = useSelectMoney("Elige tu crytomoneda", crytos)
 
   useEffect(() => {
     const getApi = async () => {
@@ -56,6 +57,7 @@ const Form = () => {
   return (
     <form action="">
       <SelectMoney/>
+      <SelectCriptomoneda/>
       {money}
       <InputSubmit type="submit" value="Cotizar"/>
     </form>
