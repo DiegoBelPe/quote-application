@@ -24,12 +24,12 @@ const InputSubmit = styled.input`
   
 `
 
-const Form = ({setMoney}) => {
+const Form = ({setMonedas}) => {
   const [crytos, setCrytos] = useState([])
   const [error, setError] = useState(false)
 
   
-  const [ money, SelectMoney] = useSelectMoney("Elige tu moneda", coins)
+  const [ moneda, SelectMonedas] = useSelectMoney("Elige tu moneda", coins)
   const [ cryptomoneda, SelectCriptomoneda] = useSelectMoney("Elige tu crytomoneda", crytos)
 
   useEffect(() => {
@@ -55,13 +55,13 @@ const Form = ({setMoney}) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    if([money, cryptomoneda].includes('')){
+    if([moneda, cryptomoneda].includes('')){
       setError(true)
       return
     }
     setError(false)
-    setMoney({
-      money,
+    setMonedas({
+      moneda,
       cryptomoneda
     })
     
@@ -76,7 +76,7 @@ const Form = ({setMoney}) => {
 
     
     >
-      <SelectMoney/>
+      <SelectMonedas/>
       <SelectCriptomoneda/>
       <InputSubmit type="submit" value="Cotizar"/>
     </form>
