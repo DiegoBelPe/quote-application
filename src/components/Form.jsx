@@ -2,6 +2,7 @@ import {useState, useEffect} from 'react'
 
 import {coins} from '../data/coins'
 import styled from '@emotion/styled'
+import Error from './Error'
 import useSelectMoney from '../hooks/useSelectMoney'
 
 const InputSubmit = styled.input`
@@ -25,6 +26,7 @@ const InputSubmit = styled.input`
 
 const Form = () => {
   const [crytos, setCrytos] = useState([])
+  const [error, setError] = useState(false)
 
   
   const [ money, SelectMoney] = useSelectMoney("Elige tu moneda", coins)
@@ -51,16 +53,29 @@ const Form = () => {
 
   }, [])
 
-  
+  const handleSubmit = e => {
+    e.preventDefault();
+    if([money, cryptomoneda].includes('')){
+      setError(true)
+      return
+    }
+    setError(false)
+  }
   
   
   return (
-    <form action="">
+    <>
+      {error && <Error>Todos los campos son obligatorios</Error>}
+    <form 
+    onSubmit={handleSubmit}
+
+    
+    >
       <SelectMoney/>
       <SelectCriptomoneda/>
-      {money}
       <InputSubmit type="submit" value="Cotizar"/>
     </form>
+    </>
   )
 }
 
